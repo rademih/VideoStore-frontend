@@ -1,0 +1,16 @@
+<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+    <div class="thumbnail">
+        <img src="https://www.gumtree.com/static/1/resources/assets/rwd/images/orphans/a37b37d99e7cef805f354d47.noimage_thumbnail.png"
+            alt="...">
+        <div class="caption">
+            <h3>{{movie.title}}</h3>
+            <h5>{{movie.director.firstName}} {{movie.director.lastName}}</h5>
+            <div star-rating rating="movie.rating" is-editable={{false}}></div>                         
+            <hr />
+            <p>{{movie.description}}</p>
+            <a ui-sref="movies.details({id: movie.id})" class="btn btn-default" role="button">Button</a>
+            </p>
+        
+        </div>
+    </div>
+</div>

@@ -1,0 +1,26 @@
+<div class="row">
+    <div class="col-md-4">
+        <img class="card-img-top" src="https://www.gumtree.com/static/1/resources/assets/rwd/images/orphans/a37b37d99e7cef805f354d47.noimage_thumbnail.png"
+            alt="Card image cap"></img>
+    </div>
+    <div class="col-md-8">
+        <h1>Title: {{ctrl.video.title}} {{ctrl.video.season==null ? '' : 'S'+ctrl.video.season}} {{ctrl.video.episode==null ?
+            '' : 'E'+ctrl.video.episode}}
+
+        </h1>
+        <h5>Director: {{ctrl.video.director.firstName}} {{ctrl.video.director.lastName}} </h5>
+        <div star-rating rating="ctrl.video.rating" is-editable={{true}}></div>
+        <h5>Release date: {{ctrl.video.date}}</h5>
+        <h5>Duration: {{ctrl.video.duration}}</h5>
+        <h5>Purchase price: {{ctrl.video.purchasePrice | currency}}</h5>
+        <h5>Rental price: {{ctrl.video.rentalPrice | currency}}</h5>
+        <h6> Description:
+            <br /> {{ctrl.video.description}}</h6>
+        <br />
+        <br />
+        <button class="btn btn-primary btn-lg button-buy">Rent</button>
+        <button class="btn btn-primary btn-lg button-buy">Buy</button>
+
+    </div>
+</div>
+</div>
