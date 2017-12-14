@@ -4,7 +4,6 @@ angular.module('videoStoreApp')
     .directive('starRating', function () {
 
         var linker = function (scope, elem, attrs) {
-            console.log('scope', scope.rating)
             scope.stars = [];
             var updateStars = function () {
                 scope.stars = [];

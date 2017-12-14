@@ -9,7 +9,7 @@
 <div class="tab-content" id="myTabContent">
   <div class="tab-pane fade show active in" id="movies" role="tabpanel" aria-labelledby="movies-tab">
     <br>
-      <div thumbnail ng-repeat="movie in ctrl.movies" is-rented={{true}}> </div>
+      <div thumbnail ng-repeat="mov in ctrl.movies" movie="ctrl.movies[$index]" rented-movies="ctrl.rentedMovies"> </div>
   </div>
   <div class="tab-pane fade" id="tv" role="tabpanel" aria-labelledby="tv-tab">
       <br>
