@@ -2,8 +2,8 @@
 angular.module('videoStoreApp')
     .factory('MovieService', function($http,ENDPOINT_URI){
 
-        function getAll(){
-            return $http.get(ENDPOINT_URI+'movies').then(function(result){
+        function getAll(sortFilter){
+            return $http.get(ENDPOINT_URI+'movies?sortBy='+sortFilter).then(function(result){
                 console.log(result);
                 return result.data;
             });

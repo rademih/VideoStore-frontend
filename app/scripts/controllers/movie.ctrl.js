@@ -1,33 +1,39 @@
 'use strict';
 angular.module('videoStoreApp')
-    .controller('MovieCtrl', function (MovieService) {
+    .controller('MovieCtrl', function (MovieService,) {
         var ctrl = this;
-
-        ctrl.getMovies = function () {
-            MovieService.getAll()
+        ctrl.movies =[];
+        ctrl.rentedMovies = [];
+        ctrl.sortFilter = '';
+        
+        function getMovies() {
+            MovieService.getAll(ctrl.sortFilter)
                 .then(function (result) {
                     ctrl.movies = result;
-                    console.log(result);
+                    getRentedMovies();
                 })
         }
-        ctrl.getRentedMovies = function () {
+        
+        function getRentedMovies () {
             MovieService.getRentedMovies()
                 .then(function (result) {
                     ctrl.rentedMovies = result;
-                    console.log(result);
-                })
-        }      
-       ctrl.getRentedStatus = function(){
-        ctrl.getMovies();
-        ctrl.getRentedMovies();
-        for(movie in ctrl.movies){
-            console.log('test',movie);
+                    _.map(ctrl.movies, function(movie,key){
+                        var rented = _.find(ctrl.rentedMovies, function(rm){
+                            return rm.video.id == movie.id;
+                        })
+                        console.log(rented);
+                        movie.rented =rented;
+                        return movie;
+                    })
+                    console.log(ctrl.movies);
+                }) 
+    }
+        ctrl.setSortFilter = function(filter){
+            ctrl.sortFilter = filter;
+            console.log('filter',filter);
         }
-        return ctrl.movies;
-       }
-        ctrl.getMovies();
-        ctrl.getRentedMovies();
-        var nesto = ctrl.getRentedStatus();
-        console.log(nesto);        
-  
+        
+        getMovies();
+        
 });
