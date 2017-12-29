@@ -1,8 +1,14 @@
 'use strict';
 angular.module('videoStoreApp')
-.directive('search', function(){
+  .directive('search', function () {
     return {
-      templateUrl: 'views/search.tmpl.html'
+      restrict: 'A',
+      templateUrl: 'views/search.tmpl.html',
+      link: function (scope) {
+        scope.search = function (test) {
+          scope.$broadcast('onChange', scope.test);
+        }
+      }
     }
   })
   ;

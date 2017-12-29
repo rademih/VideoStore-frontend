@@ -1,0 +1,21 @@
+<div class="container">
+    <a ui-sref="admin.add" class="btn btn-primary"> Add Video </a>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">Title</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="video in ctrl.videos">
+                <td>{{video.title}}</td>
+                <td>
+                        <a ui-sref="admin.edit({id: video.id})"class="btn btn-primary">Edit</a>
+                        <button type="button" class="btn btn-danger" ng-click="ctrl.deleteVideo(video.id)"}>Delete</button>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</div>

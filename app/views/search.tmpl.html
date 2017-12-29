@@ -1,8 +1,8 @@
 <div class="col-lg-6">
-    <div class="input-group">
-      <input type="text" class="form-control" placeholder="Search" aria-label="Search for...">
-      <span class="input-group-btn">
-        <button class="btn btn-primary" type="button">Search</button>
-      </span>
-    </div>
-  </div>
+  <form ng-submit="search({test: test})" class="input-group">
+    <input type="text" class="form-control" placeholder="Search" ng-model="test" aria-label="Search for...">
+    <span class="input-group-btn">
+      <button class="btn btn-primary" type="submit">Search</button>
+    </span>
+  </form>
+</div>

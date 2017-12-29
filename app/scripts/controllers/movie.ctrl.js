@@ -1,13 +1,14 @@
 'use strict';
 angular.module('videoStoreApp')
-    .controller('MovieCtrl', function (MovieService,) {
+    .controller('MovieCtrl', function (MovieService,$scope) {
         var ctrl = this;
         ctrl.movies =[];
         ctrl.rentedMovies = [];
         ctrl.sortFilter = '';
+        ctrl.titleFilter = '';
         
-        function getMovies() {
-            MovieService.getAll(ctrl.sortFilter)
+        function getMovies(sortFilter, titleFilter) {
+            MovieService.getAll(ctrl.sortFilter, ctrl.titleFilter)
                 .then(function (result) {
                     ctrl.movies = result;
                     getRentedMovies();
@@ -22,17 +23,24 @@ angular.module('videoStoreApp')
                         var rented = _.find(ctrl.rentedMovies, function(rm){
                             return rm.video.id == movie.id;
                         })
-                        console.log(rented);
                         movie.rented =rented;
                         return movie;
                     })
-                    console.log(ctrl.movies);
                 }) 
     }
         ctrl.setSortFilter = function(filter){
             ctrl.sortFilter = filter;
-            console.log('filter',filter);
         }
+
+        $scope.$watch('ctrl.sortFilter', function(newValue, oldValue){
+            getMovies(newValue, ctrl.titleFilter);
+        })
+
+        $scope.$on('onChange', function(event, args) {
+            ctrl.titleFilter = args;
+            getMovies(ctrl.sortFilter, ctrl.titleFilter);
+            
+        })
         
         getMovies();
         

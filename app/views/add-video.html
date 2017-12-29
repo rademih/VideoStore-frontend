@@ -1,0 +1,65 @@
+<div class="container">
+    <form class="video-form" ng-submit="ctrl.submit()">
+        <div class="form-group">
+            <label htmlFor="type">Type of video</label>
+            <select class="form-control form-control" ng-model="ctrl.video.type">
+                <option value="movie">Movie</option>
+                <option value="tvShow">Tv show</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label htmlFor="">Title</label>
+            <input type="text" class="form-control" ng-model="ctrl.video.title" id="title" />
+        </div>
+        <div class="form-group">
+            <label htmlFor="">Director</label>
+            <select class="form-control form-control" ng-model="ctrl.video.director.id">
+                <option></option>
+                <option ng-repeat="(directorId,director) in ctrl.directors" ng-value={{director.id}}>{{director.firstName}} {{director.lastName}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label htmlFor="">Release date</label>
+            <input type="date" class="form-control" name="input" ng-model="ctrl.video.date"
+            placeholder="yyyy-MM-ddTHH:mm:ss" />
+        <div role="alert" />
+          </div>
+        <div class="form-group">
+            <label htmlFor="">Duration</label>
+            <input type="text" class="form-control" id="duration" ng-model="ctrl.video.duration" />
+        </div>
+        <div class="form-group">
+            <label htmlFor="">Rental price</label>
+            <input type="text" class="form-control" id="rentalPrice" ng-model="ctrl.video.rentalPrice" />
+        </div>
+        <div class="form-group">
+            <label htmlFor="">Purchase price</label>
+            <input type="text" class="form-control" id="purchasePrice" ng-model="ctrl.video.purchasePrice" />
+        </div>
+        <div class="form-group">
+            <label htmlFor="">Rating</label>
+            <input type="text" class="form-control" id="rating" ng-model="ctrl.video.rating" />
+        </div>
+        <div ng-if="ctrl.video.type=='movie'">
+            <div class="form-group">
+                <label htmlFor="">Box office</label>
+                <input type="text" class="form-control" id="boxOffice" ng-model="ctrl.video.boxOffice" />
+            </div>
+        </div>
+        <div ng-if="ctrl.video.type=='tvShow'">
+        <div class="form-group">
+            <label htmlFor="">Season</label>
+            <input type="text" class="form-control" id="season" ng-model="ctrl.video.season" />
+        </div>
+        <div class="form-group">
+            <label htmlFor="">Episode</label>
+            <input type="text" class="form-control" id="episode" ng-model="ctrl.video.episode" />
+        </div>
+        </div>
+        <div class="form-group">
+            <label htmlFor="">Description</label>
+            <textarea class="form-control" rows="3" ng-model="ctrl.video.description"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Save</button>
+    </form>
+</div>

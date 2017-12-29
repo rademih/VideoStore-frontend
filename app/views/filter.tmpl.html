@@ -1,7 +1,7 @@
 <div class="col-md-12 fixed-right">
     <div class="form-group">
         <label>Sort by</label>
-        <select class="form-control form-control-lg " name="sort">
+        <select class="form-control form-control-lg " ng-model="filter" ng-change="sortFilter({filter: filter})" name="sort">
             <option value="rating">Rating</option>
             <option value="date">Date</option>
         </select>

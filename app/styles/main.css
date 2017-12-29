@@ -1,3 +1,4 @@
+
 .browsehappy {
   margin: 0.2em 0;
   background: #ccc;
@@ -107,4 +108,20 @@ cursor: pointer;
 .is-rented {
   border-color: red;
   border-width: 5px;
+}
+.video-form {
+  margin: 0 15%;
+}
+.thumbnail {
+  height: 450px;
+  overflow: hidden;
+
+}
+.description {
+  max-height: 4.5em;
+  overflow: hidden;
+
+}
+.title {
+  min-height: 2.1em;
 }
